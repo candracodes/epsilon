@@ -1,3 +1,48 @@
-* {
-    // add styling for body
+/* GLOBAL STYLE GUIDES */
+body { background-color: #dedede; color: grey;}
+h1 { font-family: "Open Sans"; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; color:#000000; margin-top:20px;} 
+h3 { font-family: "Open Sans"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } 
+p { font-family: "Open Sans"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
+blockquote { font-family: "Open Sans"; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
+pre { font-family: "Open Sans"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+
+/* STYLE GUIDES FOR CHALLENGE 1 */
+.challenge-1-card {
+    width: 290px !important;
+    border-radius: 1px !important;
+}
+.dog-image {
+    height: 200px;
+}
+.beach-day-title {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: #0F5EF0;
+    margin-bottom: 18px !important;
+}
+.rufus-text{
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    color: #7A8594;
+    margin-bottom: 20px !important;
+}
+.modified-text {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    color: #7A8594;
+    margin-bottom: 14px !important;
+}
+.challenge-1-shadow {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.challenge-1-shadow:hover {
+    box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* SPECIFIC STYLE GUIDES FOR CHALLENGE 2 */
+.form-container {
+    
 }
