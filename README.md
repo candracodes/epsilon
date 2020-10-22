@@ -5,7 +5,7 @@ Coding Challenge
 https://github.com/candracodes/epsilon
 
 # project prompt
-All coding challege items are prompted from index.html
+All coding challenge items are prompted from index.html
 
 # development process
 I've installed NPM as well as Bower, even thought I may not use these elements and may likely rely on a CDN.
