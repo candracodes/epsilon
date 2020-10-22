@@ -45,35 +45,54 @@
         <!-- ELEMENT: EMAIL -->
         <div class="form-group">
           <label for="exampleInputEmail1" class="label-style">Email</label>
-          <input type="email" class="form-control input-style" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
+          <input type="email" class="form-control input-style" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter Email">
         </div>
         <!-- ELEMENT: PHONE NUMBER -->
         <div class="form-group">
           <label for="exampleInputPhone" class="label-style">Phone Number</label>
-          <input type="tel" class="form-control input-style phone-number-bottom" id="exampleInputPhone" placeholder="Enter Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+          <input type="tel" class="form-control input-style phone-number-bottom" id="exampleInputPhone"
+            placeholder="Enter Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
           <small class="small-text-bottom">Format: 123-456-7890</small>
         </div>
         <!-- ELEMENT: PASSWORD-->
         <div class="form-group">
           <label for="exampleInputPassword1" class="label-style">Password</label>
-          <input type="password" class="form-control input-style" id="exampleInputPassword1" placeholder="Enter Password">
+          <input type="password" class="form-control input-style" id="exampleInputPassword1"
+            placeholder="Enter Password">
         </div>
         <!-- ELEMENT: CONFIRM PASSWORD-->
         <div class="form-group">
           <label for="exampleInputPassword2" class="label-style">Confirm Password</label>
-          <input type="password" class="form-control confirm-password-bottom" id="exampleInputPassword2" placeholder="Confirm Password">
+          <input type="password" class="form-control confirm-password-bottom" id="exampleInputPassword2"
+            placeholder="Confirm Password">
         </div>
         <!-- ELEMENT: SAVE BUTTON -->
         <button type="submit" class="btn btn-primary save-button">Save</button>
       </form>
     </div>
 
-    <!-- CHALLENGE 3: FORM -->
-    <h1>Challenge 2: Form</h1>
+    <!-- CHALLENGE 3: TABLE -->
+    <h1>Challenge 3: Table</h1>
+    <div class="table-container">
+      <table class="table table-striped" id="list_table_json">
+        <thead>
+          <tr>
+            <th id="arrow-sorter" scope="col" onclick="sortTable(0)">Name</th>
+            <th id="arrow-sorter" scope="col" onclick="sortTable(1)">Price</th>
+            <th id="arrow-sorter" scope="col" onclick="sortTable(2)">Category</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    ARROW UP: <i class="fas fa-caret-up"></i>
+    ARROW DOWN: <i class="fas fa-caret-down"></i>
+    <div class="up-arrow">&#9650</div>
+    <div class="down-arrow">&#9660</div>
 
   </div>
-
-
 
   <!-- jQuery-->
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"
@@ -84,5 +103,89 @@
     integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
     crossorigin="anonymous"></script>
 </body>
+<script type="text/javascript">
+  //POPULATE TABLE
+  $(document).ready(function () {
+    $.ajax({
+      url: "http://usweb.dotomi.com/resources/swfs/cookies.json",
+      dataType: 'json',
+      type: 'get',
+      cache: false,
+      success: function (data) {
+        var event_data = '';
+        $.each(data, function (index, value) {
+          console.log("This is the table data");
+          event_data += '<tr>';
+          event_data += '<td>' + value.name + '</td>';
+          event_data += '<td>' + value.price + '</td>';
+          event_data += '<td>' + value.category + '</td>';
+          event_data += '</tr>';
+        });
+        $("#list_table_json").append(event_data);
+      },
+      error: function (d) {
+        alert("404. Please wait until the File is Loaded.");
+      }
+    });
+  });
+
+  //SORT TABLE
+  function sortTable(n) {
+    console.log("The sorting functioon is activated");
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("list_table_json");
+    switching = true;
+    //Set the sorting direction to ascending:
+    dir = "asc"; 
+    /*Make a loop that will continue until
+    no switching has been done:*/
+    while (switching) {
+      //start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /*Loop through all table rows (except the
+      first, which contains table headers):*/
+      for (i = 1; i < (rows.length - 1); i++) {
+        //start by saying there should be no switching:
+        shouldSwitch = false;
+        /*Get the two elements you want to compare,
+        one from current row and one from the next:*/
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+        /*check if the two rows should switch place,
+        based on the direction, asc or desc:*/
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            console.log("Column is Ascending");
+            //if so, mark as a switch and break the loop:
+            shouldSwitch= true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        /*If a switch has been marked, make the switch
+        and mark that a switch has been done:*/
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        //Each time a switch is done, increase this count by 1:
+        switchcount ++;      
+      } else {
+        /*If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again.*/
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }
+</script>
 
 </html>

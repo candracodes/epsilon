@@ -99,3 +99,9 @@ p { font-family: "Open Sans"; font-size: 14px; font-style: normal; font-variant:
 }
 
 /* STYLE GUIDES FOR CHALLENGE 3 */
+.table-container {
+    background-color: white;
+    position: relative;
+    padding: 1rem;
+    margin: 1rem 0;
+}
