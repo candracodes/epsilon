@@ -34,24 +34,42 @@
     </div>
 
     <!-- CHALLENGE 2: FORM -->
+    <h1>Challenge 2: Form</h1>
     <div class="form-container">
-      <form>
+      <form class="challenge-2-margin-left">
+        <!-- ELEMENT: NAME -->
+        <div class="form-group name-element">
+          <label for="exampleInputName" class="label-style">Name</label>
+          <input type="text" class="form-control input-style" id="exampleInputName" placeholder="Enter Name">
+        </div>
+        <!-- ELEMENT: EMAIL -->
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <label for="exampleInputEmail1" class="label-style">Email</label>
+          <input type="email" class="form-control input-style" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
         </div>
+        <!-- ELEMENT: PHONE NUMBER -->
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <label for="exampleInputPhone" class="label-style">Phone Number</label>
+          <input type="tel" class="form-control input-style phone-number-bottom" id="exampleInputPhone" placeholder="Enter Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+          <small class="small-text-bottom">Format: 123-456-7890</small>
         </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <!-- ELEMENT: PASSWORD-->
+        <div class="form-group">
+          <label for="exampleInputPassword1" class="label-style">Password</label>
+          <input type="password" class="form-control input-style" id="exampleInputPassword1" placeholder="Enter Password">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <!-- ELEMENT: CONFIRM PASSWORD-->
+        <div class="form-group">
+          <label for="exampleInputPassword2" class="label-style">Confirm Password</label>
+          <input type="password" class="form-control confirm-password-bottom" id="exampleInputPassword2" placeholder="Confirm Password">
+        </div>
+        <!-- ELEMENT: SAVE BUTTON -->
+        <button type="submit" class="btn btn-primary save-button">Save</button>
       </form>
     </div>
+
+    <!-- CHALLENGE 3: FORM -->
+    <h1>Challenge 2: Form</h1>
 
   </div>
 
