@@ -1,8 +1,8 @@
-# epsilon
+# sample
 Coding Challenge
 
 # file location
-https://github.com/candracodes/epsilon
+https://github.com/candracodes/sample
 
 # project prompt
 All coding challenge items are prompted from index.html
